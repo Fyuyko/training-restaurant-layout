@@ -1,0 +1,144 @@
+.header {
+   padding-top: 30px;
+
+   &__menu {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      justify-content: center;
+   }
+
+   &__logo {
+      img {
+         width: 200px;
+      }
+   }
+
+   &__modal-order {
+      text-decoration: underline;
+   }
+
+   &__menu-items {
+      margin-top: 30px;
+      display: flex;
+      gap: 45px;
+      justify-content: center;
+      &.first {
+         grid-column-start: 1;
+         grid-column-end: 3;
+      }
+      &.second {
+         grid-column-start: 4;
+         grid-column-end: 6;
+      }
+      a {
+         position: relative;
+         color: #000;
+         text-decoration: none;
+         &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 1.5px;
+            background-color: #000;
+         }
+         &:hover:before {
+            width: 100%;
+         }
+         &::before {
+            transition: width 0.35s;
+         }
+      }
+   }
+
+   &__burger {
+      display: none;
+   }
+}
+
+@media screen and (max-width: 1025px) {
+   .header {
+      &__menu-items {
+         gap: 20px;
+      }
+      .header__logo img {
+         width: 120px;
+      }
+   }
+}
+
+@media screen and (max-width: 769px) {
+   .header {
+      overflow: hidden;
+      &__inner {
+         top: 20px;
+      }
+      &__menu {
+         position: relative;
+         height: 0;
+         transition: 0.5s;
+         grid-template-columns: 0;
+         gap: 20px;
+         &.active {
+            height: 100px;
+         }
+      }
+      &__burger {
+         z-index: 3;
+         display: block;
+         position: relative;
+         right: 42px;
+         width: 30px;
+         height: 20px;
+
+         &::before,
+         &::after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background-color: #000;
+            transition: all 0.3s linear;
+         }
+         &::before {
+            top: 0;
+         }
+         &::after {
+            bottom: 0;
+         }
+         span {
+            position: absolute;
+            background-color: #000;
+            height: 2px;
+            width: 100%;
+            top: 9px;
+            transition: all 0.3s linear;
+         }
+         &.active::before {
+            top: 9px;
+            transform: rotate(45deg);
+         }
+         &.active::after {
+            bottom: 9px;
+            transform: rotate(-45deg);
+         }
+         &.active span {
+            transform: scale(0);
+         }
+      }
+      &__menu-items {
+         flex-direction: column;
+         gap: 5px;
+         margin: 2.5px;
+      }
+      &__logo {
+         /* position: absolute;
+         top: 0;
+         left: 0; */
+         /* img {
+            top: -20px;
+         } */
+      }
+   }
+}

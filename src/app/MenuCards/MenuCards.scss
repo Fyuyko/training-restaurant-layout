@@ -1,0 +1,33 @@
+.menu-cards__item {
+   margin-top: 80px;
+   display: flex;
+   justify-content: center;
+
+   img {
+      height: 170px;
+   }
+   .menu-cards__button-quote {
+      color: #fff;
+      background-color: #000;
+      margin-top: 12px;
+      text-transform: uppercase;
+   }
+   .menu-cards__button-menu {
+      padding: 0;
+      background-color: #fff;
+      text-decoration: underline;
+      border: none;
+      outline: none;
+      width: 120px;
+      text-align: left;
+      margin-top: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+   }
+}
+
+@media screen and (max-width: 769px) {
+   .menu-cards__item {
+      flex-wrap: wrap;
+   }
+}
